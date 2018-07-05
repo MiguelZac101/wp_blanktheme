@@ -142,8 +142,19 @@ input:focus {
 /*------------------------------------*\
     PAGES
 \*------------------------------------*/
-
-
+h1{
+    color: #d4771e;
+    font-size: 34px;
+    text-align: center;    
+    background-image: url(img/tituloBG.png);
+    background-repeat: repeat-x;
+    background-position: center center;
+    font-weight: normal;
+}
+h1 span{
+    padding: 0 25px;
+    background-color: white;
+}
 
 /*------------------------------------*\
     IMAGES

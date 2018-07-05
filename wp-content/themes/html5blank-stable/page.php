@@ -4,7 +4,7 @@
 		<!-- section -->
 		<section>
 
-			<h1><?php the_title(); ?></h1>
+                    <h1><span><?php the_title(); ?></span></h1>
 
 		<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
@@ -40,6 +40,6 @@
 		<!-- /section -->
 	</main>
 
-<?php get_sidebar(); ?>
+<?php // get_sidebar(); ?>
 
 <?php get_footer(); ?>
