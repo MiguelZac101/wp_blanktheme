@@ -51,5 +51,12 @@
             </div>
         </header>
         <!-- /header -->
+        
+        <?php if(is_page()){?>
+            <?php $destacada = wp_get_attachment_image_src(get_post_thumbnail_id(),'full'); ?>
+            <?php $destacada = $destacada[0]; ?>
+            <div class="imagenFondo" style="background-image: url(<?php echo $destacada; ?>)"></div>
+        <?php } ?>
+        
         <!-- wrapper -->
         <div class="wrapper">
