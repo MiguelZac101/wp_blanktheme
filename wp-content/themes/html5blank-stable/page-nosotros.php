@@ -18,7 +18,8 @@
 
 				<?php the_content(); ?>
 
-				<?php comments_template( '', true ); // Remove if you don't want comments ?>
+				<img src="<?php the_field('imagen1'); ?>"/>
+                                <img src="<?php the_field('imagen2'); ?>"/>                            
 
 				<br class="clear">
 
