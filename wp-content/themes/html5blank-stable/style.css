@@ -30,8 +30,8 @@ html {
 	font-size:62.5%;
 }
 body {
-	font:300 14px/1.4 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	color:#444;
+	font:300 16px/1.7 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	color:black;
 }
 /* clear */
 .clear:before,
@@ -69,6 +69,12 @@ input:focus {
 	border:1px solid #04A4CC;
 }
 
+h2{
+    font-size: 24px;    
+    font-weight: bold;
+    color: #d4771e;
+}
+
 /*------------------------------------*\
     STRUCTURE
 \*------------------------------------*/
@@ -83,6 +89,9 @@ input:focus {
 }
 .grid1-3{
     width: 33.3%;
+}
+.grid2-4{
+    width: 50%;
 }
 /* wrapper */
 .wrapper {
@@ -208,6 +217,36 @@ div.foto:nth-chid(even){
     width: 100%;
     height: auto;
 }
+/*tours*/
+article.type-tours h2{
+    margin: 10px 0;
+}
+article.type-tours p{
+    margin: 5px 0;
+}
+.imagen-destacada{
+    position: relative;
+}
+.imagen-destacada .mas-info{
+    position: absolute;
+    top: 19px;
+    right: -13px;
+}
+.fecha-precio p.fecha{
+    float: left;
+    width: 40%;
+}
+.fecha-precio p.precio{
+    float: right;
+    width: 40%;
+    text-align: right;
+    color: #d4771e;
+    font-weight: bold;
+}
+.fecha-precio p{
+    
+}
+
 
 /*------------------------------------*\
     IMAGES
