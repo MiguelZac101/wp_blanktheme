@@ -29,7 +29,7 @@ if (function_exists('add_theme_support'))
     add_theme_support('post-thumbnails');
     add_image_size('mediano', 350,250, true); //Mediano
     add_image_size('toursDestacado', 523,294, true); //toursdestacado
-
+    add_image_size('toursPrincipal',751,422,true);
 
 
     // Add Support for Custom Backgrounds - Uncomment below if you're going to use
