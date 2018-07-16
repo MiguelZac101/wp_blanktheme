@@ -28,16 +28,16 @@
                         $fecharetorno = strtotime(get_field('fecha_de_retorno'));
                         $fechaderetorno = date_i18n($formato, $fecharetorno);
                         ?>
-                        
-                        <p class="fecha"><?php echo $fechadesalida; ?> - <?php echo $fechaderetorno; ?></p>  
-                        <p>Lugar de salida: <?php the_field('lugar_de_salida'); ?></p>
-                        <p>Lugares Disponibles: <?php the_field('lugares_disponibles'); ?></p>
-                        <p>Precio: <?php the_field('precio'); ?></p>
-                        
-                        <h2 class="itinerario_viaje">Itinerario de Viaje</h2>
-                        <?php the_field('itineradio_de_viaje'); ?>
-                        
+
+                        <p class="fecha">Duración <span><?php echo $fechadesalida; ?> - <?php echo $fechaderetorno; ?></span></p>  
+                        <p>Lugar de salida: <span><?php the_field('lugar_de_salida'); ?></span></p>
+                        <p>Lugares Disponibles: <span><?php the_field('lugares_disponibles'); ?></span></p>
+                        <p>Precio: <span><?php the_field('precio'); ?></span></p>
                     </div>
+                    
+                    <h2 class="itinerario">Itinerario de Viaje</h2>
+                    <?php the_field('itineradio_de_viaje'); ?>
+                    
                 </article>
                 <!-- /article -->
                 <div class="grid1-3">

@@ -154,7 +154,7 @@ h2{
     text-transform: uppercase;
 }
 /*contenido*/
-main{
+.page main{
     margin-top: 250px;
 }
 /* sidebar */
@@ -243,10 +243,24 @@ article.type-tours p{
     color: #d4771e;
     font-weight: bold;
 }
-.fecha-precio p{
-    
-}
 
+/*Single Tour*/
+.informacion-viaje{
+    background-color: rgba(0,0,0,.13);
+    border: 1px solid $c0c0c0;
+    margin-top: 20px;
+    padding: 20px;
+}
+.informacion-viaje p{
+    font-weight: bold;
+}
+.informacion-viaje span{
+    font-weight: normal;
+}
+h2.itinerario{
+    text-align: center;
+    font-size: 28px;
+}
 
 /*------------------------------------*\
     IMAGES
