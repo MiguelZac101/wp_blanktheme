@@ -41,8 +41,9 @@
                 </article>
                 <!-- /article -->
                 <div class="grid1-3">
-                    <?php the_content(); // Dynamic Content ?>
-                </div>
+                    <h3>Galería de Imagenes</h3>
+                    <?php the_content(); // galeria?>
+                </div><!--grid1-3 galeria-->
 
                 <?php edit_post_link(); // Always handy to have Edit Post Links available ?>
 
