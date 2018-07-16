@@ -7,6 +7,8 @@
         jQuery('.gallery a').each(function(){
            jQuery(this).attr({'data-lightbox':'galeria'}) ;
         });
+        
+        jQuery('.single-tours header nav ul li:contains("Tours")').addClass('current_page_item');
 
     });
 
