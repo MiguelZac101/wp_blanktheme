@@ -15,35 +15,40 @@
 
                 <!-- article -->
                 <article id="post-<?php the_ID(); ?>" <?php post_class('grid2-3'); ?>>
-                    <?php the_content(); ?>
-                    <br class="clear">
-                    <?php edit_post_link(); ?>
+                    <?php the_content(); ?>  
+
+                    <?php
+                    $args = array(
+                        'post_type' => 'testimoniales',
+                        'posts_per_page' => -1,
+                        'order' => 'DESC',
+                        'orderby' => 'date',
+                    );
+                    ?>
+                    <?php $testimoniales = new WP_Query($args); ?>
+                    <?php while ($testimoniales->have_posts()): $testimoniales->the_post(); ?>
+
+                        <article class="testimonial">
+                            <h2><?php the_title(); ?></h2>
+                            <blockquote><p><?php echo get_the_content(); ?></p></blockquote>
+                            <p class="testimonial"><?php the_field('nombre'); ?></p>
+                            <p class="testimonial"><?php the_field('ciudad'); ?></p>
+                        </article>
+
+
+                    <?php
+                    endwhile;
+                    wp_reset_postdata();
+                    ?>
+
                 </article>
                 <!-- /article -->
-                <div class="galeria-nosotros grid1-3">
-                    <div class="foto">
-                        <?php
-                        $imagen = get_field('imagen_1');
-                        $size = 'mediano';
-                        if ($imagen) {
-                            echo wp_get_attachment_image($imagen, $size,false,array('class'=>'fotografia'));
-                        }
-                        ?>
-                    </div>
-                    <div class="foto">
-                        <?php
-                        $imagen = get_field('imagen_2');
-                        $size = 'mediano';
-                        if ($imagen) {
-                            echo wp_get_attachment_image($imagen, $size,false,array('class'=>'fotografia'));
-                        }
-                        ?>
-                    </div>
-                </div>
+                <br class="clear">
+
 
             <?php endwhile; ?>
 
-        <?php else: ?>
+<?php else: ?>
 
             <!-- article -->
             <article>
@@ -53,12 +58,12 @@
             </article>
             <!-- /article -->
 
-        <?php endif; ?>
+<?php endif; ?>
 
     </section>
     <!-- /section -->
 </main>
 
-<?php // get_sidebar();  ?>
+<?php // get_sidebar();    ?>
 
 <?php get_footer(); ?>
