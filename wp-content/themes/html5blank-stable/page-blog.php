@@ -45,21 +45,24 @@
                         </div>
                     </article>
 
-                <?php endwhile;
+                    <?php
+                endwhile;
                 wp_reset_postdata();
                 ?>
 
                 <?php
+                $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                 $args = array(
                     'post_type' => 'post',
-                    'posts_per_page' => 5,
+                    'posts_per_page' => 1,
                     'orderby' => 'date',
                     'order' => 'DESC',
-                    'offset' => 1
+//                    'offset' => 1
+                    'paged' => $paged
                 );
                 ?>
                 <?php $consejos = new WP_Query($args); ?>
-        <?php while ($consejos->have_posts()):$consejos->the_post(); ?>
+                <?php while ($consejos->have_posts()):$consejos->the_post(); ?>
 
                     <article class="entrada clear">
 
@@ -73,22 +76,29 @@
                         <div class="grid2-3">
                             <h2>
                                 <a href="<?php the_permalink(); ?>">
-            <?php the_title(); ?>
+                                    <?php the_title(); ?>
                                 </a>    
                             </h2>
-            <?php html5wp_excerpt('html5wp_custom_post'); ?>
+                            <?php html5wp_excerpt('html5wp_custom_post'); ?>
                         </div>
                     </article>
 
-                <?php endwhile;
+                <?php endwhile; ?>
+                <ul>
+                    <li><?php previous_posts_link('&laquo; Anterior', $consejos->max_num_pages); ?></li>
+                    <li><?php next_posts_link('Siguiente &raquo;', $consejos->max_num_pages); ?></li>
+                </ul>
+
+                <?php
                 wp_reset_postdata();
                 ?>
 
-            <?php endwhile;
+                <?php
+            endwhile;
             wp_reset_postdata();
             ?>
 
-<?php else: ?>
+        <?php else: ?>
 
             <!-- article -->
             <article>
@@ -98,7 +108,7 @@
             </article>
             <!-- /article -->
 
-<?php endif; ?>
+        <?php endif; ?>
 
     </section>
     <!-- /section -->
