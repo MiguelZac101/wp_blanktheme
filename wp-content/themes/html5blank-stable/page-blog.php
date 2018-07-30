@@ -33,7 +33,9 @@
                             </a>                            
                         </div>
                         <div class="grid1-3">
-
+                            publicado en <?php the_time('F j, Y'); ?> <br/>
+                            <?php _e( 'Publicado por : ', 'html5blank' ); ?> <br/>
+                            <?php _e( 'Categoria : ', 'html5blank' ); the_category(', '); // Separated by commas ?>
                         </div>
                         <div class="grid2-3">
                             <h2>
