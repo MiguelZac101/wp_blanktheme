@@ -349,6 +349,17 @@ article.testimonial .testimonial {
 	margin: 0;
 }
 
+/** Single */
+
+.single-post div.foto {
+	-webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  margin-top: 0;
+}
+.single-post a {
+	font-weight: bold;
+	color:#df7900;
+}
 
 /*** Paginación **/
 
