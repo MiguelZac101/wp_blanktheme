@@ -2,8 +2,8 @@
 /*
   Template Name: Blog
  */
+get_header();
 ?>
-<?php get_header(); ?>
 
 <main role="main">
     <!-- section -->
@@ -11,96 +11,108 @@
 
         <h1><span><?php the_title(); ?></span></h1>
 
-        <?php if (have_posts()): ?>
+        <?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
-            <?php while (have_posts()):the_post(); ?>
-
+                <?php $paged = (get_query_var('paged')) ? get_query_var('paged') : 1 ?>
                 <?php
-                $args = array(
-                    'post_type' => 'post',
-                    'posts_per_page' => 1,
-                    'orderby' => 'date',
-                    'order' => 'DESC'
-                );
-                ?>
-                <?php $ultima = new WP_Query($args); ?>
-                <?php while ($ultima->have_posts()):$ultima->the_post(); ?>
-
-                    <article class="entrada clear">
-                        <div class="foto">
-                            <a href="<?php the_permalink(); ?>">
-                                <?php the_post_thumbnail('principalBlog'); ?>
-                            </a>                            
-                        </div>
-                        <div class="grid1-3">
-                            publicado en <?php the_time('F j, Y'); ?> <br/>
-                            <?php _e( 'Publicado por : ', 'html5blank' ); ?> <br/>
-                            <?php _e( 'Categoria : ', 'html5blank' ); the_category(', '); // Separated by commas ?>
-                        </div>
-                        <div class="grid2-3">
-                            <h2>
-                                <a href="<?php the_permalink(); ?>">
-                                    <?php the_title(); ?>
-                                </a>    
-                            </h2>
-                            <?php html5wp_excerpt('html5wp_custom_post'); ?>
-                        </div>
-                    </article>
-
-                    <?php
-                endwhile;
-                wp_reset_postdata();
-                ?>
-
-                <?php
-                $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                 $args = array(
                     'post_type' => 'post',
                     'posts_per_page' => 1,
                     'orderby' => 'date',
                     'order' => 'DESC',
-//                    'offset' => 1
                     'paged' => $paged
                 );
                 ?>
+
                 <?php $consejos = new WP_Query($args); ?>
-                <?php while ($consejos->have_posts()):$consejos->the_post(); ?>
+                <?php $i = 0; ?>
+                <?php while ($consejos->have_posts()): $consejos->the_post(); ?>
 
-                    <article class="entrada clear">
+                    <?php if ($i == 0) { ?>
 
-                        <div class="grid1-3">
+                        <article class="entrada destacada clear">
                             <div class="foto">
                                 <a href="<?php the_permalink(); ?>">
-                                    <?php the_post_thumbnail('mediano'); ?>
-                                </a>                            
+                                    <?php the_post_thumbnail('principalBlog'); ?>
+                                </a>
                             </div>
-                        </div>
-                        <div class="grid2-3">
-                            <h2>
-                                <a href="<?php the_permalink(); ?>">
-                                    <?php the_title(); ?>
-                                </a>    
-                            </h2>
-                            <?php html5wp_excerpt('html5wp_custom_post'); ?>
-                        </div>
-                    </article>
 
-                <?php endwhile; ?>
-                <ul>
-                    <li><?php previous_posts_link('&laquo; Anterior', $consejos->max_num_pages); ?></li>
-                    <li><?php next_posts_link('Siguiente &raquo;', $consejos->max_num_pages); ?></li>
-                </ul>
+                            <div class="grid1-3">
+                                <span class="date">Escrito el: <?php the_time('F j, Y'); ?></span> <br/>
+                                <span class="author"><?php _e('Publicado por: ', 'html5blank'); ?> <?php the_author_posts_link(); ?></span>
 
-                <?php
-                wp_reset_postdata();
+                                <p><?php
+                                    _e('Categoría : ', 'html5blank');
+                                    the_category(', '); // Separated by commas  
+                                    ?></p>
+                            </div>
+                            <div class="grid2-3">
+                                <h2> 
+                                    <a href="<?php the_permalink(); ?>"> <?php the_title(); ?></a>
+                                </h2>
+                <?php html5wp_excerpt('html5wp_custom_post') ?>
+                            </div>
+                        </article>
+
+            <?php } else { ?>
+
+                        <!-- FIN ENTRADA DESTACADA -->
+
+
+
+                        <article class="entrada clear">
+                            <div class="grid1-3">
+                                <div class="foto">
+                                    <a href="<?php the_permalink(); ?>">
+                <?php the_post_thumbnail('mediano'); ?>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="grid2-3">
+                                <h2>
+                                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                </h2>
+                <?php html5wp_excerpt('html5wp_custom_post') ?>
+                            </div>
+                        </article>
+
+            <?php } ?>
+
+                    <!-- FIN ENTRADAS -->
+
+                    <?php
+                    $i++;
+                endwhile;
                 ?>
 
-                <?php
-            endwhile;
-            wp_reset_postdata();
-            ?>
+                <ul class="paginacion clear">
+                    <li><?php previous_posts_link('&laquo; Anterior', $consejos->max_num_pages); ?></li>
+                    <li><?php next_posts_link('Siguiente &raquo; ', $consejos->max_num_pages); ?></li>
+                </ul>
 
-        <?php else: ?>
+
+
+
+
+
+        <?php wp_reset_postdata(); ?>
+
+
+
+
+
+
+
+
+
+
+
+                <?php edit_post_link(); ?>
+
+
+            <?php endwhile; ?>
+
+<?php else: ?>
 
             <!-- article -->
             <article>
@@ -110,12 +122,12 @@
             </article>
             <!-- /article -->
 
-        <?php endif; ?>
+<?php endif; ?>
 
     </section>
     <!-- /section -->
 </main>
 
-<?php // get_sidebar();     ?>
+<?php //get_sidebar();  ?>
 
 <?php get_footer(); ?>

@@ -330,6 +330,48 @@ article.testimonial .testimonial {
     margin-right: 20px;
 }
 
+/*** Consejos **/
+
+.entrada.destacada .foto {
+	-webkit-transform: rotate(-2deg);
+	-moz-transform: rotate(-2deg);
+}
+.entrada .foto {
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+}
+.entrada a {
+	color: #df7900;
+	font-weight: bold;
+}
+
+.entrada h2 {
+	margin: 0;
+}
+
+
+/*** Paginación **/
+
+ul.paginacion {
+	list-style: none;
+	padding:0;
+	width: 30%;
+	margin-top:50px;
+}
+
+ul.paginacion li {
+	float: left;
+	padding: 0 10px;
+	background-color: #df7900;
+	margin-right: 10px;
+	text-align: center;
+	border-radius: 3px;
+}
+
+ul.paginacion li a {
+	color: #fff;
+	font-weight: bold;
+}
 
 /*------------------------------------*\
     IMAGES
