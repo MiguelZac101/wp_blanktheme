@@ -31,6 +31,7 @@ if (function_exists('add_theme_support'))
     add_image_size('toursDestacado', 523,294, true); //toursdestacado
     add_image_size('toursPrincipal',751,422,true);
     add_image_size('blogPrincipal',1100,404,true);
+    add_image_size('miniatura',98,66,true);
 
 
     // Add Support for Custom Backgrounds - Uncomment below if you're going to use
