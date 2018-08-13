@@ -58,6 +58,35 @@
         </div>
         <div class="grid1-4">
             <h3>Últimos Consejos</h3>
+            <?php
+            $args = array(
+            'post_type' => 'post',
+            'posts_per_page' => 2,
+            'order' => 'DESC',
+            'orderby' => 'date'
+            );
+            ?>
+            <?php $consejos = new WP_Query($args); ?>
+            <?php while ($consejos->have_posts()): $consejos->the_post(); ?>
+
+            <!-- article -->
+            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                <div class="imagen-destacada grid2-4">
+                    <?php the_post_thumbnail('miniatura'); ?>                    
+                </div><!--.imagen-destacada-->                
+                
+                <div class="fecha-precio clear grid2-4">
+                    <a href="<?php the_permalink(); ?>">
+                        <h2><?php the_title(); ?></h2>
+                    </a>                    
+                </div>
+                <div class="clear"></div>                
+            </article>
+            <!-- /article -->               
+            <?php
+            endwhile;
+            wp_reset_postdata();
+            ?>  
         </div>
         <div class="grid1-4">
 
