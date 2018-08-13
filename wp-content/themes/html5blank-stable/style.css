@@ -99,6 +99,9 @@ h3{
 .grid2-4{
     width: 50%;
 }
+.grid1-4{
+    width: 25%;
+}
 /* wrapper */
 .wrapper {
     max-width:1100px;
@@ -173,6 +176,15 @@ h3{
     border-top: 6px solid #df7900;
     padding: 20px 0;
     color: white;
+}
+footer h3{
+    color: #fff;
+    border: none;
+    margin-bottom: 30px;
+}
+footer a, footer a:hover{
+    color:#fff;
+    font-weight: bold;
 }
 .footer .widgets .columna3{
     float: left;

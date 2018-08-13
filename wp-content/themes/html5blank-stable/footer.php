@@ -4,16 +4,22 @@
 <footer class="footer" role="contentinfo">
 
     <div class="widgets wrapper clear">
-        <div class="columna3">
-            <h2>Sobre Nosotros</h2>
+        <div class="grid1-4">
+            <h3>Sobre Nosotros</h3>
+            <?php 
+            $nosotros = new WP_Query('page_id=9');
+            while($nosotros->have_posts()):$nosotros->the_post();
+                html5wp_excerpt('html5wp_custom_post');
+            endwhile;wp_reset_postdata();
+            ?>
         </div>
-        <div class="columna3">
-            <h2>Proximos Viajes</h2>
+        <div class="grid1-4">
+            <h3>Proximos Viajes</h3>
         </div>
-        <div class="columna3">
-            <h2>Últimos Consejos</h2>
+        <div class="grid1-4">
+            <h3>Últimos Consejos</h3>
         </div>
-        <div class="columna3">
+        <div class="grid1-4">
 
         </div>
     </div>
