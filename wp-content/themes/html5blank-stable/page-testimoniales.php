@@ -43,6 +43,10 @@
 
 			</article>
 			<!-- /article -->
+                        <div class="contacto-testimociales grid1-3">
+                            <h3>Envíanos tu testimonial</h3>
+                            <?php echo do_shortcode('[contact-form-7 id="68" title="Contact form 1"]'); ?>
+                        </div>
 
 				<br class="clear">
 
