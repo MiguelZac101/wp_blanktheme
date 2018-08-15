@@ -304,6 +304,22 @@ h1 span {
 	background-color: #ffffff;
 }
 
+section.tours .fecha-precio {
+	background-color: #d4771e;
+	text-align: center;
+}
+section.tours .fecha-precio  a {
+	color: #ffffff!important;
+	display: block;
+	font-weight: bold;
+	font-size:1.6em;
+}
+section.tours .fecha-precio p.fecha {
+	width: 100%;
+	color: #ffffff;
+	margin-top: 0;
+}
+
 /** EFECTO POLAROID */
 
 div.foto {
