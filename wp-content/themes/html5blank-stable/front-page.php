@@ -7,7 +7,7 @@
 </section>
 
 <div class="wrapper">
-
+    <?php get_template_part('searchform'); ?>
     <section class="tours clear">
         <?php get_template_part('partes/index','tours'); ?>
     </section> <!--.tours -->
