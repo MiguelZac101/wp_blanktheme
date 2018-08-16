@@ -289,6 +289,9 @@ ul.slider {
 	right: 30px;
 	background-position: -43px 10px;
 }
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Anton', sans-serif;
+}
 
 h1 {
 	color: #d4771e;

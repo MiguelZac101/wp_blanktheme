@@ -134,6 +134,10 @@ function html5blank_styles()
     wp_register_style('bxslidercss', get_template_directory_uri() . '/plugins_jquery/bxslider/jquery.bxslider.min.css', array(), '4', 'all');
     wp_enqueue_style('bxslidercss'); // Enqueue it!
     
+    wp_register_style('Anton', 'https://fonts.googleapis.com/css?family=Anton', array(), '4', 'all');
+    wp_enqueue_style('Anton'); // Enqueue it!
+    
+    
     wp_register_style('html5blank', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
     wp_enqueue_style('html5blank'); // Enqueue it!
 }
